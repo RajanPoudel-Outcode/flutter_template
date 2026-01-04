@@ -1,0 +1,94 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+
+        {
+            "name": "app-flutter-dev-debug",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-t",
+                "lib/main_dev.dart",
+                "--flavor",
+                "dev",
+                "--dart-define-from-file=.dev.env.json"
+            ],
+            "flutterMode": "debug",
+            "program": "app/lib/main_dev.dart",
+        },
+        {
+            "name": "app-flutter-dev-release",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-t",
+                "lib/main_dev.dart",
+                "--flavor",
+                "dev",
+                "--dart-define-from-file=.dev.env.json"
+            ],
+            "flutterMode": "release",
+            "program": "app/lib/main_dev.dart",
+        },
+        {
+            "name": "app-flutter-stag-debug",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-t",
+                "lib/main_stag.dart",
+                "--flavor",
+                "stag",
+                "--dart-define-from-file=.stag.env.json"
+            ],
+            "flutterMode": "debug",
+            "program": "app/lib/main_stag.dart",
+        },
+        {
+            "name": "app-flutter-stag-release",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-t",
+                "lib/main_stag.dart",
+                "--flavor",
+                "stag",
+                "--dart-define-from-file=.stag.env.json"
+            ],
+            "flutterMode": "release",
+            "program": "app/lib/main_stag.dart",
+        },
+        {
+            "name": "app-flutter-prod-debug",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-t",
+                "lib/main_prod.dart",
+                "--flavor",
+                "prod",
+                "--dart-define-from-file=.prod.env.json"
+            ],
+            "flutterMode": "debug",
+            "program": "app/lib/main_prod.dart",
+        },
+        {
+            "name": "app-flutter-prod-release",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-t",
+                "lib/main_prod.dart",
+                "--flavor",
+                "prod",
+                "--dart-define-from-file=.prod.env.json"
+            ],
+            "flutterMode": "release",
+            "program": "app/lib/main_prod.dart",
+        }
+    ]
+}
