@@ -1,4 +1,4 @@
-package com.outcode.flutter_template
+package com.outcode.template
 
 import io.flutter.embedding.android.FlutterActivity
 
