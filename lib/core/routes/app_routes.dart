@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_template/core/routes/app_routes.gr.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -8,7 +9,7 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
     // Splash screen - instant navigation
-    // AutoRoute(page: SplashRoute.page, path: '/', initial: true, keepHistory: false),
+    AutoRoute(page: SplashRoute.page, path: '/', initial: true, keepHistory: false),
 
     // AutoRoute(page: ProfileRoute.page, path: '/', initial: true, keepHistory: false),
   ];

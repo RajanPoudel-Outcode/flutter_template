@@ -19,6 +19,14 @@ import 'package:flutter_template/core/clients/rest_client/rest_client_module.dar
     as _i475;
 import 'package:flutter_template/core/routes/app_routes.dart' as _i659;
 import 'package:flutter_template/core/services/share_service.dart' as _i1041;
+import 'package:flutter_template/features/term_conditions/data/datasources/term_conditions_remote_data_source.dart'
+    as _i664;
+import 'package:flutter_template/features/term_conditions/data/repositories/term_conditions_repository_impl.dart'
+    as _i750;
+import 'package:flutter_template/features/term_conditions/domain/repositories/term_conditions_repository.dart'
+    as _i82;
+import 'package:flutter_template/features/term_conditions/presentation/cubit/term_conditions_cubit.dart'
+    as _i101;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
@@ -49,6 +57,21 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i477.AuthorizedApiClient>(
       () => restClientModule.getAuthorizedApiClient(
         gh<_i361.Dio>(instanceName: 'authorizedInstance'),
+      ),
+    );
+    gh.lazySingleton<_i664.TermConditionsRemoteDataSource>(
+      () => _i664.TermConditionsRemoteDataSourceImpl(
+        gh<_i477.AuthorizedApiClient>(),
+      ),
+    );
+    gh.lazySingleton<_i82.TermConditionsRepository>(
+      () => _i750.TermConditionsRepositoryImpl(
+        remoteDataSource: gh<_i664.TermConditionsRemoteDataSource>(),
+      ),
+    );
+    gh.factory<_i101.TermConditionsCubit>(
+      () => _i101.TermConditionsCubit(
+        termConditionsRepository: gh<_i82.TermConditionsRepository>(),
       ),
     );
     return this;
