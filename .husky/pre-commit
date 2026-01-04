@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+
+# Get the current branch name
+current_branch=$(git symbolic-ref --short HEAD)
+
+# Define protected branches
+protected_branches=("main" "develop", "prod")
+
+# Check if trying to commit directly to protected branches
+if [ "$current_branch" = "main" ] || [ "$current_branch" = "dev" ]; then
+    echo "🚫 Direct commits to '$current_branch' branch are not allowed!"
+    echo "Please create a feature branch and submit a pull request."
+    echo ""
+    echo "To create a new branch:"
+    echo "  git checkout -b feature/your-feature-name"
+    echo ""
+    exit 1
+fi
+
+# echo "🔍 Running Flutter analyze..."
+
+# # Run Flutter analyze
+# flutter analyze
+
+# # Check if Flutter analyze passed
+# if [ $? -ne 0 ]; then
+#     echo "❌ Flutter analyze failed. Please fix the issues before committing."
+#     exit 1
+# fi
+
+# echo "✅ Flutter analyze passed!"
+
+# echo "🧪 Running Flutter tests..."
+
+# # Run Flutter tests
+# flutter test
+
+# # Check if Flutter tests passed
+# if [ $? -ne 0 ]; then
+#     echo "❌ Flutter tests failed. Please fix the tests before committing."
+#     exit 1
+# fi
+
+# echo "✅ All checks passed! Proceeding with commit..."
