@@ -1,0 +1,13 @@
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:injectable/injectable.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+
+@module
+abstract class ServicesModule {
+  @lazySingleton
+  DeviceInfoPlugin get deviceInfoPlugin => DeviceInfoPlugin();
+
+  @preResolve
+  @lazySingleton
+  Future<PackageInfo> get packageInfo => PackageInfo.fromPlatform();
+}

@@ -26,7 +26,7 @@ extension ContextX on BuildContext {
   void snack({
     required String message,
     Duration duration = const Duration(seconds: 1),
-    Color backgroundColor = AppColors.secondaryDark,
+    Color backgroundColor = AppColors.secondary,
     TextStyle? textStyle,
   }) {
     ScaffoldMessenger.of(this)

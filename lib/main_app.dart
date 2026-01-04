@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_template/core/app_theme/app_theme.dart';
 import 'package:flutter_template/core/routes/app_routes.dart';
+import 'package:flutter_template/core/routes/app_routes.gr.dart';
+import 'package:flutter_template/features/auth/presentation/cubit/authentication_cubit.dart';
 import 'package:flutter_template/l10n/app_localizations.dart';
 
 import 'core/app_theme/app_theme_cubit.dart';
@@ -38,7 +40,11 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => getIt<AppThemeCubit>())],
+      providers: [
+        BlocProvider(create: (context) => getIt<AuthenticationCubit>()),
+
+        BlocProvider(create: (context) => getIt<AppThemeCubit>()),
+      ],
       child: BlocBuilder<AppThemeCubit, AppThemeType>(
         builder: (context, theme) {
           return MaterialApp.router(
@@ -53,6 +59,20 @@ class _MainAppState extends State<MainApp> {
             theme: AppTheme().getCurrentThemeFromType(theme), // Use the theme from AppThemeCubit
             debugShowCheckedModeBanner: false,
             routerConfig: _router.config(),
+            builder: (context, child) => BlocListener<AuthenticationCubit, AuthenticationState>(
+              listener: (context, state) {
+                state.maybeWhen(
+                  orElse: () {},
+                  authenticated: () {
+                    _router.replaceAll([const DashboardRoute()]);
+                  },
+                  unauthenticated: () {
+                    _router.replaceAll([const AuthMainRoute()]);
+                  },
+                );
+              },
+              child: child!,
+            ),
           );
         },
       ),

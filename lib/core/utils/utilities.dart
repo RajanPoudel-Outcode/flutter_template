@@ -22,6 +22,14 @@ class Utilities {
     return defaultTargetPlatform == TargetPlatform.android;
   }
 
+  static bool isiOS() {
+    return defaultTargetPlatform == TargetPlatform.iOS;
+  }
+
+  static bool isMobile() {
+    return isiOS() || isAndroid();
+  }
+
   static void dismissKeyboard() {
     FocusManager.instance.primaryFocus?.unfocus();
   }

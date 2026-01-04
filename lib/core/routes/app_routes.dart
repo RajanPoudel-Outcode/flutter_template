@@ -10,8 +10,46 @@ class AppRouter extends RootStackRouter {
   List<AutoRoute> get routes => [
     // Splash screen - instant navigation
     AutoRoute(page: SplashRoute.page, path: '/', initial: true, keepHistory: false),
+    // Auth routes
+    CustomRoute(
+      page: AuthMainRoute.page,
+      path: '/auth',
+      transitionsBuilder: TransitionsBuilders.slideLeft,
 
-    // AutoRoute(page: ProfileRoute.page, path: '/', initial: true, keepHistory: false),
+      children: [
+        CustomRoute(
+          page: LoginRoute.page,
+          path: 'login',
+          initial: true,
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+        ),
+        // CustomRoute(
+        //   page: SignupRoute.page,
+        //   path: 'sign-up',
+        //   barrierDismissible: false,
+        //   transitionsBuilder: TransitionsBuilders.slideLeft,
+        // ),
+
+        // CustomRoute(
+        //   page: ResetPasswordRoute.page,
+        //   path: 'reset-password',
+        //   barrierDismissible: false,
+        //   transitionsBuilder: TransitionsBuilders.slideLeft,
+        // ),
+      ],
+    ),
+    AutoRoute(
+      page: DashboardRoute.page,
+      path: '/dashboard',
+      children: [
+        CustomRoute(
+          page: HomeRoute.page,
+          initial: true,
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+        ),
+        CustomRoute(page: ProfileRoute.page, transitionsBuilder: TransitionsBuilders.slideLeft),
+      ],
+    ),
   ];
 }
 

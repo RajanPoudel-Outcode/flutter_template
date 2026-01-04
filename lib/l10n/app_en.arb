@@ -2,5 +2,15 @@
   "appName": "Template",
   "@appName":{
     "description": "this is the app name"
-  }
+  },
+  "login": "Login",
+  "logIn": "Log In",
+  "signup": "Sign Up",
+  "signOut": "Sign Out",
+  "email": "Email",
+  "enterEmail": "Enter email",
+  "phone": "Phone",
+  "password": "Password",
+  "forgetPassword": "Forget Password",
+  "dontHaveAnAccount": "Don’t have an account?"
 }
