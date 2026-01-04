@@ -1,0 +1,6 @@
+{
+  "appName": "Template",
+  "@appName":{
+    "description": "this is the app name"
+  }
+}
