@@ -244,16 +244,13 @@ This project uses `.env` files to manage environment-specific variables. The `sc
 2. **Add your environment variables** (example `.dev.env`):
 
    ```
-   # API Configuration
-   API_BASE_URL=https://dev-api.example.com
-   API_TIMEOUT=30
-
-   # Feature Flags
-   ENABLE_ANALYTICS=true
-   DEBUG_MODE=true
-
-   # Firebase Config
-   FIREBASE_PROJECT_ID=flutter-template-86e8e
+   BASIC_AUTH_USERNAME_IOS=ios
+   BASIC_AUTH_PASSWORD_IOS=here
+   BASIC_AUTH_USERNAME_ANDROID=android
+   BASIC_AUTH_PASSWORD_ANDROID=here
+   BASE_URL=https://example.com/
+   CLICKUP_API_KEY=your_clickup_api_key_here
+   CLICKUP_LIST_ID=your_clickup_list_id_here
    ```
 
 3. **Convert .env files to JSON format:**
